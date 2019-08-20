@@ -7,7 +7,7 @@ class LinkedList {
     this.head = null;
   }
 
-  insertAtHead(value){
+  insert(value){
     const newHead = new Node(value);
 
     if (this.head === null) {
@@ -16,6 +16,31 @@ class LinkedList {
       newHead.next = this.head;
       this.head = newHead;
     }
+    return this;
+  }
+  
+  includes(value){
+    let current = this.head;
+
+    while(current !== null){
+      if(current.value === value){
+        return true;
+      }
+      else{
+        current = current.next;
+      }
+      return false;
+  }
+}
+
+  toString(){
+    let current = this.head;
+    let values = '';
+    while(current !== null){
+      values = values + current.value
+      current = current.next;
+    }
+    return values;
   }
 
   traverse() {
