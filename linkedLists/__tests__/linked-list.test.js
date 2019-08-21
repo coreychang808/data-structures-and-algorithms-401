@@ -45,4 +45,54 @@ describe('testing all linkLists methods made', ()=>{
         linkedList.insert('gwen');
         expect(linkedList.toString()).toEqual('gwenchloecorey');
     })
+
+    it('Can successfully add a node to the end of the linked list', ()=>{
+        const linkedList = new LinkedList();
+        linkedList.insert('corey');
+        linkedList.insert('gwen');
+        linkedList.insert('chloe');
+       expect(linkedList.head.next.next.value).toEqual('corey');
+        expect(linkedList.head.next.next.next).toEqual(null);
+    })
+
+    it('Can successfully add multiple nodes to the end of a linked list',()=>{
+        const linkedList = new LinkedList();
+        linkedList.append('corey');
+        linkedList.append('gwen');
+        linkedList.append('chloe');
+        expect(linkedList.head.value).toEqual('corey');
+        expect(linkedList.head.next.value).toEqual('gwen');
+        expect(linkedList.head.next.next.value).toEqual('chloe');
+        expect(linkedList.head.next.next.next).toEqual(null);
+    });
+
+    it('Can successfully insert a node before a node located i the middle of a linked list',()=>{
+        const linkedList = new LinkedList();
+      linkedList.append(1);
+      linkedList.append(2);
+      linkedList.append(4);
+      linkedList.append(5);
+      linkedList.insertBefore(4, 'middle');
+      expect(linkedList.head.next.next.value).toEqual('middle');
+      expect(linkedList.head.next.next.next.value).toEqual(4);
+    })
+
+    it('Can successfully insert a node before the first node of a linked list',()=>{
+        const linkedList = new LinkedList();
+        linkedList.append('value');
+        linkedList.insertBefore('value', 'insert');
+        expect(linkedList.head.value).toEqual('insert');
+        expect(linkedList.head.next.value).toEqual('value');
+        console.log(linkedList);
+    })
+    
+    it('Can successfully insert a node after the last node of the linked list',()=>{
+        const linkedList = new LinkedList();
+        linkedList.append('corey');
+        linkedList.append('gwen');
+        linkedList.insertAfter('gwen', 'chloe');
+        expect(linkedList.head.next.value).toEqual('gwen');
+        expect(linkedList.head.next.next.value).toEqual('chloe');
+        expect(linkedList.head.next.next.next).toEqual(null);
+    })
 });
