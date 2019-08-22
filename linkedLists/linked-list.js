@@ -101,7 +101,24 @@ class LinkedList {
     first.next = insert;
   }
 
+  getKFromEnd(k){
+    let first = this.head;
+    let second = this.head;
+    for(let i = 0; i < k; i++){
+      if(second === null || second.next === null){
+        return 'nope!';
+      } else {
+        second = second.next;
+      }
+    }
+    while(second.next !== null){
+      first = first.next;
+      second = second.next;
+    }
+    return first.value;
+  }
 
+  
   traverse() {
    let current = this.head;
    while(current !== null) {

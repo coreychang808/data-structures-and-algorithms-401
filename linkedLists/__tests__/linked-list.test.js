@@ -95,4 +95,45 @@ describe('testing all linkLists methods made', ()=>{
         expect(linkedList.head.next.next.value).toEqual('chloe');
         expect(linkedList.head.next.next.next).toEqual(null);
     })
+
+    it('Where k is greater than the length of the linked list', ()=> {
+        const linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert(2);
+        linkedList.insert(3);
+        linkedList.insert(4);
+        expect(linkedList.getKFromEnd(4)).toEqual('nope!')
+    })
+
+    it('Where k and the length of the list are the same', ()=>{
+        const linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert(2);
+        expect(linkedList.getKFromEnd(2)).toEqual('nope!')
+    })
+
+    it('Where k is not a positive integer', ()=>{
+        const linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert(2);
+        linkedList.insert(3)
+        console.log(linkedList);
+        expect(linkedList.getKFromEnd(-1)).toEqual(1);
+    })
+
+    it('Where the linked list is of a size 1',()=>{
+        const linkedList = new LinkedList();
+        linkedList.insert(5);
+        expect(linkedList.getKFromEnd(5)).toEqual('nope!');
+    })
+
+    it('Happy Path” where k is not at the end, but somewhere in the middle of the linked list',()=>{
+        const linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert(2);
+        linkedList.insert(3);
+        linkedList.insert(4);
+        linkedList.insert(5);
+        expect(linkedList.getKFromEnd(2)).toEqual(3);
+    })
 });
