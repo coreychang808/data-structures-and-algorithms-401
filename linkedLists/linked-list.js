@@ -35,12 +35,12 @@ class LinkedList {
 
   toString(){
     let current = this.head;
-    let values = '';
+    let valueToString = '';
     while(current !== null){
-      values = values + current.value
+      valueToString = valueToString + current.value
       current = current.next;
     }
-    return values;
+    return valueToString;
   }
 
   traverse() {
